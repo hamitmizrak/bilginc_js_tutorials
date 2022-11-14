@@ -63,5 +63,230 @@ alert("deneme")
 // let data3=Number("asd")/14;
 // console.log(data3)
 
+//let number=Number(prompt("Lütfen sayı giriniz"));
+
+//Escape => 
+//console.log("1.satır\n2.satır")
+
+//Math
+//console.log(Math.min(2,5,3,8,-99))
+
+//bilimsel gösterim
+// let bilimsel=12E-5;
+// console.log(bilimsel)
+
+//CAST
+//Number("14")
+//String(14)
+
+//String
+
+//Function
+//DRY
+
+//Normal Function
+//1
+// function returnsuzParametresiz(){
+// document.write("returnsuz Parametresiz<br/>")
+// }
+// returnsuzParametresiz();
+
+// //2
+// function returnsuzParametreli(data){
+// document.write("returnsuz Parametreli "+data+"<br/>")
+// }
+// returnsuzParametreli("js");
+
+// //3
+// function returnluParametresiz(){
+// return "returnslu Parametresiz";
+// }
+// let data=returnluParametresiz();
+
+// //4
+// function returnluParametreli(data){
+//     return "returnlu Parametrli "+data;
+//     }
+// let data2=returnluParametreli();
 
 
+//Normal Function
+// function returnsuzParametresiz(){
+// document.write("Normal Function <br/>")
+// }
+// returnsuzParametresiz();
+
+
+// //Anonymous Function
+// const value=function (){
+//     document.write("Anonymous function <br/>")
+// }
+// value();
+
+// //Arrow Function
+// let value2=()=>{
+//     document.write("Arrows function")
+// }
+// value2();
+
+
+//Immedia Function
+// (
+//     function(){
+//         console.log("deneme")
+//     }
+// )();
+
+//////////////////////////////////////////////
+//callback:bir fonksiyona bizler parametre veriyoruz ve sonra fonksiyonu tekrar çağır.
+
+//first function
+// function callBackFirst(number){
+//     console.log(Math.pow(number,2));
+// }
+
+// //second function
+// function callBackSecond(callback){
+//     const userData=Number(prompt("Lütfen bir sayı giriniz"));
+//     callback(userData);
+// }
+
+//callbackfunction ==> SP(Monad)
+//callBackSecond(callBackFirst);
+//////////////////////////////////////////////
+
+//setInterval
+let timeSchedule = () => {
+    setInterval(function () {
+        console.log("merhabalar")
+    }, 2000);
+};
+//timeSchedule()
+
+//////////////////////////////////////////////
+
+// CALLBACKFUNCTION
+// callback beklediğimiz zamanda önce gelirse
+// parameters yanlış verilirse(asign)
+// Callback function çağrılmaz
+//computer
+let callBackComputer = () => {
+    //computer Object
+    const computer = [
+        { computerName: "computer 1", price: 10 },
+        { computerName: "computer 2", price: 20 },
+        { computerName: "computer 3", price: 30 }
+    ];
+    //console.log(computer)
+
+    //her bir elemana erişim sağladım
+    const listComputer = () => {
+        computer.map(temp => {
+            console.log(temp.computerName)
+        });
+    };
+
+    //push CallBackFunction
+    const addComputer = (trade, callback) => {
+        computer.push(trade);
+        callback();
+    }
+    // object yeni veriler ekledik
+    addComputer({ computerName: "computer 4", price: 40 }, listComputer)
+}
+//callBackComputer()
+
+///////////////////////////////////////////////////////////
+//PROMISE
+// ********Callback sıkıntıları****************
+//pending: bekleniyor
+//resolve:eğer istediğimze ulaştıysak
+//reject: eğer sorun teşkil edilirse
+// callback beklediğimiz zamanda önce gelirse
+// parameters yanlış verilirse(asign)
+// Callback function çağrılmaz
+
+// const promiseData1=new Promise((resolve,reject)=>{
+//     resolve("Merhabalar");
+// });
+// console.log(promiseData1);
+
+// promiseData1.then(value=>{
+// console.log(value)
+// });
+
+// const promiseData1=new Promise((resolve,reject)=>{
+//     //resolve("Merhabalar");
+//     reject("bağlantı sağlanamadı");
+// });
+// console.log(promiseData1);
+
+// promiseData1.catch(error=>{
+//     console.log("data is not "+error)
+// })
+
+// const promiseData1=new Promise((resolve,reject)=>{
+//     //resolve("Merhabalar");
+//     reject("bağlantı sağlanamadı");
+// });
+// console.log(promiseData1);
+
+// promiseData1.then(value=>{
+// console.log(value)
+// });
+
+// promiseData1.catch(error=>{
+//     console.log("data is not "+error)
+// })
+
+// const promiseData1=new Promise((resolve,reject)=>{
+//     resolve("Merhabalar");
+//     reject("bağlantı sağlanamadı");
+// });
+// console.log(promiseData1);
+
+// //Chain: zincirleme
+// //then: eğer resolve doğru sonuçlanırsa çalışır.
+// //catch: herhangi bir hata olursa
+// promiseData1.then(value=>{
+// console.log(value)
+// }).catch(error=>{
+//     console.log("data is not "+error)
+// })
+
+//Promise Examples
+
+///////////////////////////////////////////////////////////
+let promiseComputer = () => {
+    //computer object
+    const computer = [
+        { computerName: "computer 1", price: 10 },
+        { computerName: "computer 2", price: 20 },
+        { computerName: "computer 3", price: 30 }
+    ];
+
+    //Computer Map List
+    const listComputer = () => {
+        computer.map(temp => {
+            console.log(temp.computerName);
+        });
+    };
+
+    //push promise
+    const addComputer = (trade) => {
+        const promiseReturn = new Promise((resolve, reject) => {
+            computer.push(trade);
+        });
+        return promiseReturn;
+    };
+
+    // addComputer
+    addComputer({ computerName: "computer 4", price: 40 })
+        .then(() => {
+            console.log("new item")
+        }).catch((error) => {
+            console.log(error)
+        });
+    listComputer()
+}
+promiseComputer()
