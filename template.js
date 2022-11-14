@@ -545,7 +545,7 @@ let arrayData3 = () => {
     for (let i = 0; i < dizi.length; i++) {
         document.write(dizi[i] + " ");
     }
-    document.write( "<br/>");
+    document.write("<br/>");
 
     //sort: küçükten büyüğe doğru sıralamak
     //dizi.sort();
@@ -559,7 +559,84 @@ let arrayData3 = () => {
     for (let i = 0; i < dizi.length; i++) {
         document.write(dizi[i] + " ");
     }
-
-
 }
-arrayData3()
+//arrayData3()
+
+// let arrayData4 = () => {
+//     let dizi = createArrayData();
+//     let evenData = [];
+//     //Çift sayıları gösterin
+
+//     //iterative
+//     for (let i = 0; i < dizi.length; i++) {
+//         if (dizi[i] % 2 === 0)
+//             evenData[i] = dizi[i];
+//     }
+//     for (let temp in evenData) {
+//         document.write(evenData[temp] + " ")
+//     }
+
+//     document.write("<br/>")
+
+//     //filter
+//     let anonymous = dizi.filter(function (value) {
+//         return value % 2 === 0
+//     });
+//     document.write(anonymous + " ")
+
+//     document.write("<br/>")
+//     let arrow = dizi.filter((value) => {
+//         return value % 2 === 0
+//     });
+//     document.write(arrow + " ")
+
+//     document.write("<br/>")
+
+//     //Map
+//     //map : her bir indis elemanına erişip değiştirme işlemine denir.
+//     let mapData = dizi.map((value, index) => {
+//         return value * 2 + index;
+//     })
+//     document.write(mapData + " ")
+
+// }
+// //arrayData4()
+
+// let arrayData5 = () => {
+//     //Template Literal 
+//     // 1-MultiLine *********************************
+//     //     let data1 = "value1\nvalue2";
+//     //     console.log(data1)
+//     //     let data2 = `value1
+//     // value2`;
+//     //     console.log(data2)
+
+
+//     // 2-interpolation ***************************
+//     let username = "adı";
+//     let surname = "soyadı";
+//     // document.writeln("<br/>"+"ADI: "+username+" SOYADI:"+surname);
+//     // document.writeln("<br/>"+  `ADI: ${username} SOYADI: ${surname}` );
+
+//     //// 3-Html Template *************************
+//     // const html=
+//     // " <ul>"+
+//     //     "<li>"+  username+"</li>"+
+//     //     "<li>"+  surname +"</li>"+
+//     // "</ul>";
+//     // document.getElementById("domdata").innerHTML=html;
+//     const html = `
+//     <ul>
+//         <li>${username}</li>
+//         <li>${surname}</li>
+//     </ul>
+//     `;
+//     document.getElementById("domdata").innerHTML=html;
+
+// }
+// arrayData5()
+
+
+// let valueFunction=()=>{
+//     alert("Tıklandı")
+// }
