@@ -643,7 +643,6 @@ let arrayData3 = () => {
 
 /*
 DOM: Document Object Module
-
 */
 let domFunction = () => {
     let result = "Veriler değiştirdim";
@@ -654,3 +653,32 @@ let domFunction = () => {
     const text = data.innerText = "<h1>" + result + "</h1>";
     data.style.color="blue";
 }
+
+//object
+let objectData=()=>{
+
+    const person={
+        firstName:"adı852",
+        lastname:"soyadı852",
+        isLogin:true,
+        tech:["html5","css3","js","devops","java"],
+        js:{
+            value1:"dom data",
+            value2:"literal"
+        }
+    };
+    console.log(person);
+    console.log(typeof  person);
+
+    //objeye yeni bir attributes 
+    console.log(person.firstName.toUpperCase());
+    person.gender="E";
+    console.log(person.gender);
+    console.log(person.tech)
+    console.log(person.tech[0].substring(0,3));
+    console.log(person.js.value1);
+    console.log(person.js.value2);
+
+}
+
+objectData()
