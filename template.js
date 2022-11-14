@@ -199,9 +199,9 @@ let callBackComputer = () => {
 ///////////////////////////////////////////////////////////
 //PROMISE
 // ********Callback sıkıntıları****************
-//pending: bekleniyor
-//resolve:eğer istediğimze ulaştıysak
-//reject: eğer sorun teşkil edilirse
+// pending: bekleniyor
+// resolve:eğer istediğimze ulaştıysak
+// reject: eğer sorun teşkil edilirse
 // callback beklediğimiz zamanda önce gelirse
 // parameters yanlış verilirse(asign)
 // Callback function çağrılmaz
@@ -280,13 +280,65 @@ let promiseComputer = () => {
         return promiseReturn;
     };
 
-    // addComputer
+    // addComputer (promise)
     addComputer({ computerName: "computer 4", price: 40 })
         .then(() => {
             console.log("new item")
         }).catch((error) => {
             console.log(error)
         });
+
+    //   const resultAsynAwait= async () =>{
+    //         const firtsDataValue = await addComputer({ computerName: "computer 4", price: 40 })
+    //         console.log("new item" + firtsDataValue)
+    //     }
+    //    resultAsynAwait()
+
     listComputer()
 }
-promiseComputer()
+//promiseComputer()
+
+///////////////////////////////////////////////////////////
+let asyncAwaitComputer = () => {
+    //computer object
+    const computer = [
+        { computerName: "computer 1", price: 10 },
+        { computerName: "computer 2", price: 20 },
+        { computerName: "computer 3", price: 30 }
+    ];
+
+    //computer Map List
+    const listComputer = () => {
+        computer.map(temp => {
+            console.log(temp.computerName)
+        });
+    };
+
+    //push promise
+    const addComputer = (trade) => {
+        const promiseReturn = new Promise((resolve, reject) => {
+            computer.push(trade);
+        });
+        return promiseReturn;
+    }
+
+    //Promise (ES7)
+    // addComputer({ computerName: "computer 4", price: 40 })
+    // .then(() => {
+    //     console.log("new item")
+    // }).catch((error) => {
+    //     console.log(error)
+    // });
+
+    //Asyn /Await(ES8)
+   async function resultAsynAwait(){
+    const firsDataValue= await addComputer({ computerName: "computer 4", price: 40 });
+    console.log(firsDataValue);
+    }
+    resultAsynAwait();
+
+    listComputer();
+}
+asyncAwaitComputer();
+
+////////////////////////////////////////////////////////////////////////////////////
