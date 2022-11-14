@@ -331,14 +331,103 @@ let asyncAwaitComputer = () => {
     // });
 
     //Asyn /Await(ES8)
-   async function resultAsynAwait(){
-    const firsDataValue= await addComputer({ computerName: "computer 4", price: 40 });
-    console.log(firsDataValue);
+    async function resultAsynAwait() {
+        const firsDataValue = await addComputer({ computerName: "computer 4", price: 40 });
+        console.log(firsDataValue);
     }
     resultAsynAwait();
 
     listComputer();
 }
-asyncAwaitComputer();
+//asyncAwaitComputer();
 
 ////////////////////////////////////////////////////////////////////////////////////
+let promiseData3 = () => {
+    //1.function çalıştıktıktan sonra 2.function çalışsın
+    //1.value  start
+    function fistData(value1) {
+        return new Promise((resolve, reject) => {
+            console.log("1.veri başlıyor...")
+            if (value1)
+                resolve("1.veri çalıştı")
+            else {
+                reject("1.veri çalışmadı !!!!")
+            }
+        });
+    }; //ends 1.value
+
+    //2.value
+    function secondData(value2) {
+        return new Promise((resolve, reject) => {
+            console.log("2.veri başlıyor ...")
+            if (value2)
+                resolve("2.veri çalıştı")
+            else
+                reject("2.veri çalışmadı")
+        });//end Promise
+    }; //end secondData
+
+    //Promise chain
+    let isLogin = true;
+    fistData(isLogin)
+        .then(temp => {
+            console.log(temp);
+            let permission = false;
+            return secondData(permission);
+        }).then(temp => {
+            console.log(temp)
+        }).catch(err => {
+            console.log(err)
+        });
+}
+//promiseData3();
+
+////////////////////////////////////////////////////////////////////////////////////
+let asynAwait3 = () => {
+
+    //1.value  start
+    function login(result) {
+        return new Promise((resolve, reject) => {
+            console.log("Sisteme Giriliyor ...")
+            if (result)
+                resolve("Login yapıldı Admin sayfasına yönlendiriliyorsunuz")
+            else
+                reject("Lütfen kayıt olunuz")
+        });//end Promise
+    }//end login
+
+    //2.value
+    function admin(result) {
+        return new Promise((resolve, reject) => {
+            console.log("Gizli sayfaya Giriliyor ...")
+            if (result)
+                resolve("Gizli sayfa yönlendiriliyor")
+            else
+                reject("Yetkiniz bulunmuyor")
+        }) //end Promise
+    }// end admin
+
+    //Asyn Await (1.YOL)
+    // async function resultAsynAwait() {
+    //     let isLogin = true;
+    //     const isadmin = await login(isLogin);
+    //     console.log("Login yapıldı Admin sayfasına yönlendiriliyorsunuz")
+
+    //     let isJwtToken = true;
+    //     const permission = await admin(isJwtToken);
+    //     console.log(permission)
+    // }
+
+    //Asyn Await (2.YOL)
+     let resultAsynAwait= async() =>{
+        let isLogin = true;
+        const isadmin = await login(isLogin);
+        console.log("Login yapıldı Admin sayfasına yönlendiriliyorsunuz")
+
+        let isJwtToken = true;
+        const permission = await admin(isJwtToken);
+        console.log(permission)
+    }
+    resultAsynAwait()
+}
+asynAwait3() 
