@@ -400,10 +400,8 @@ let asynAwait3 = () => {
     function admin(result) {
         return new Promise((resolve, reject) => {
             console.log("Gizli sayfaya Giriliyor ...")
-            if (result)
-                resolve("Gizli sayfa yönlendiriliyor")
-            else
-                reject("Yetkiniz bulunmuyor")
+            //Ternary Data
+            let resultData=(result) ?resolve("Gizli sayfa yönlendiriliyor") :reject("Yetkiniz bulunmuyor") ;   
         }) //end Promise
     }// end admin
 
