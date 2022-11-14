@@ -401,7 +401,7 @@ let asynAwait3 = () => {
         return new Promise((resolve, reject) => {
             console.log("Gizli sayfaya Giriliyor ...")
             //Ternary Data
-            let resultData=(result) ?resolve("Gizli sayfa yönlendiriliyor") :reject("Yetkiniz bulunmuyor") ;   
+            let resultData = (result) ? resolve("Gizli sayfa yönlendiriliyor") : reject("Yetkiniz bulunmuyor");
         }) //end Promise
     }// end admin
 
@@ -417,15 +417,149 @@ let asynAwait3 = () => {
     // }
 
     //Asyn Await (2.YOL)
-     let resultAsynAwait= async() =>{
-        let isLogin = true;
-        const isadmin = await login(isLogin);
-        console.log("Login yapıldı Admin sayfasına yönlendiriliyorsunuz")
+    let resultAsynAwait = async () => {
+        try {
+            let isLogin = true;
+            const isadmin = await login(isLogin);
+            console.log("Login yapıldı Admin sayfasına yönlendiriliyorsunuz")
 
-        let isJwtToken = true;
-        const permission = await admin(isJwtToken);
-        console.log(permission)
+
+            let isJwtToken = true;
+            const permission = await admin(isJwtToken);
+            console.log(permission)
+        } catch (err) {
+            console.log(err);
+            //console.log(err.name);
+            //console.log(err.message);
+        }
     }
     resultAsynAwait()
 }
-asynAwait3() 
+//asynAwait3() 
+
+////////////////////////////////////////////////////////////////////////////////////
+let arrayData = function () {
+    //diziler sıfırncı (indis) başlar
+    let arr = [];
+    arr[0] = "Merhabalar";
+    arr[1] = 44;
+    arr[2] = 55.63;
+    arr[3] = true;
+    console.log(arr);
+    console.log(arr[0]);
+    console.log(arr[3]);
+    console.log(arr[arr.length - 1]);
+}
+//arrayData();
+
+//Random 5 tane sayı üretsin 
+let createArrayData = () => {
+    let temp;
+    let dizi = [];
+    for (let i = 0; i < 5; i++) {
+        //round: 3.4
+        temp = Math.round(Math.random() * 7 + 1);
+        dizi[i] = temp;
+    }
+    return dizi;
+}
+
+let showArrayData = () => {
+    console.log(createArrayData());
+    let resultArray = createArrayData();
+    //iterative for
+    document.write("<br/>iterative for<br/>");
+    for (let i = 0; i < resultArray.length; i++) {
+        document.write(resultArray[i] + " ");
+    }
+    document.write("<br/>");
+
+    //For IN =>(for Over Index) eğer indis sayısı gerekiyorsa
+    //(dizideki indisler)
+    for (let temp in resultArray) {
+        document.write(temp + " ");
+    }
+
+    document.write("<br/>");
+    document.write("<br/> for IN<br/>");
+    for (let temp in resultArray) {
+        document.write(resultArray[temp] + " ");
+    }
+
+    document.write("<br/>");
+    //For OF =>(for over member) 
+    //(dizideki elemanlar)
+    document.write("<br/> for OF<br/>");
+    for (let temp of resultArray) {
+        document.write(temp + " ");
+    }
+
+    document.write("<br/>");
+    document.write("<br/> forEach<br/>");
+    //dizi eleman toplamını
+    let sumData = 0;
+    resultArray.forEach(function (value) {
+        sumData += value
+    })
+    document.write(sumData + " ");
+    document.write("<br/> <br/>  value,index,array<br/> ");
+    resultArray.forEach(function (value, index, array) {
+        document.write(value + " ");
+        //document.write(index+" ");
+        //document.write(array);
+    });
+
+
+}
+//showArrayData()
+
+let popPush = () => {
+    let dizi = [1, 2, 3, 4, 5];
+    //push => elemanın sonuna eklemek
+    //unshift=>elemanın başına  eklemek
+    dizi.push(6)
+    dizi.unshift(0)
+    for (let i = 0; i < dizi.length; i++) {
+        document.write(dizi[i] + " ");
+    }
+    document.write("<br/>");
+
+    //pop => elemanın sondan 1 eleman çıkar
+    dizi.pop()
+    dizi.shift()
+    //shift=>elemanın baştan 1 eleman başa çıkar
+    for (let i = 0; i < dizi.length; i++) {
+        document.write(dizi[i] + " ");
+    }
+    document.write("<br/>")
+    //delete dizi[0]
+    for (let i = 0; i < dizi.length; i++) {
+        document.write(dizi[i] + " ");
+    }
+}
+//popPush();
+
+
+let arrayData3 = () => {
+    let dizi = createArrayData();
+    for (let i = 0; i < dizi.length; i++) {
+        document.write(dizi[i] + " ");
+    }
+    document.write( "<br/>");
+
+    //sort: küçükten büyüğe doğru sıralamak
+    //dizi.sort();
+
+    //reverse
+    //dizi.reverse();
+
+    //Büyükten Küçüğe doğru sıralamak
+    dizi.sort().reverse()
+
+    for (let i = 0; i < dizi.length; i++) {
+        document.write(dizi[i] + " ");
+    }
+
+
+}
+arrayData3()
