@@ -9,7 +9,7 @@ alert("deneme")
 //dynamics variable
 //global scope
 //var
-var value1 = "Data value 55";
+var value1 = "Data value 55 66";
 document.write(value1 + "<br/>")
 var value1 = "Data";
 
