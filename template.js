@@ -640,3 +640,17 @@ let arrayData3 = () => {
 // let valueFunction=()=>{
 //     alert("Tıklandı")
 // }
+
+/*
+DOM: Document Object Module
+
+*/
+let domFunction = () => {
+    let result = "Veriler değiştirdim";
+    const data = document.getElementById("parag_id");
+    //const data=document.getElementById("parag_id").innerHTML="<h1>"+result+"</h1>";
+
+    //const html = data.innerHTML = "<h1>" + result + "</h1>";
+    const text = data.innerText = "<h1>" + result + "</h1>";
+    data.style.color="blue";
+}
