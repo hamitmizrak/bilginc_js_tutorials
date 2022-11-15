@@ -257,6 +257,7 @@ let callBackComputer = () => {
 //Promise Examples
 
 ///////////////////////////////////////////////////////////
+//Promise Examples
 let promiseComputer = () => {
     //computer object
     const computer = [
@@ -299,6 +300,7 @@ let promiseComputer = () => {
 //promiseComputer()
 
 ///////////////////////////////////////////////////////////
+//async Await
 let asyncAwaitComputer = () => {
     //computer object
     const computer = [
@@ -688,6 +690,133 @@ let objectData = () => {
 
     //function 
     console.log(person.fullName());
-}
 
-objectData()
+}
+//objectData()
+
+//object for in
+let objectData2 = () => {
+
+    const person = {
+        firstName: "adı852",
+        lastname: "soyadı852",
+        isLogin: true,
+        tech: ["html5", "css3", "js", "devops", "java"],
+        js: {
+            value1: "dom data",
+            value2: "literal"
+        },
+        fullName: function () {
+            return `${this.firstName} - ${this.lastname}`
+        }
+    };
+
+    //for IN
+    let sumData = "";
+    for (let temp in person) {
+        sumData += person[temp]
+    }
+    console.log(sumData)
+}
+//objectData2()
+
+
+//object Constructor
+let objectData3 = () => {
+    //student object
+    let Student = function (studentName, studentSurname, number, computerAge) {
+        this.studentName = studentName;
+        this.studentSurname = studentSurname;
+        this.number = number;
+        this.computerAge = computerAge;
+        console.log(this);
+        this.pow = () => {
+            return number * number;
+        }
+        this.computerAge = function () {
+            //return 2022-computerAge;
+            return new Date().getFullYear() - computerAge;
+        }
+    }//end Student
+
+    //OOP
+    let result = new Student("adı44", "soyadı44", 4, 10);
+    console.log(result.studentName);
+    console.log(result.pow());
+    console.log("Bilgisayar alma zamanı: " + result.computerAge());
+    console.log(`Bilgisayar alma zamanı: ${result.computerAge()}`);
+}
+//objectData3()
+
+//Object Stringify
+let objectData4 = () => {
+    const person = {
+        firstName: "adı852",
+        lastname: "soyadı852",
+        isLogin: true,
+        tech: ["html5", "css3", "js", "devops", "java"],
+        js: {
+            value1: "dom data",
+            value2: "literal"
+        }
+    };
+    //JSON
+    // JSON String'e çevir
+    let jsonToString = JSON.stringify(person);
+    console.log(jsonToString)
+
+    //1.YOL
+    console.log(jsonToString.substring(14, 20));
+
+    //2.YOL
+    const data = jsonToString.indexOf("adı852");
+    console.log(jsonToString.substring(data, data + 6))
+
+    //3.YOL
+    const parseData = JSON.parse(jsonToString);
+    let firstNameValue = parseData.firstName;
+    console.log(firstNameValue)
+}
+//objectData4()
+
+//parametresiz  call,apply(parametresizde aynısı)  bind
+let objectData5 = () => {
+    let Student = function () {
+        console.log("Merhabalar " + this.adi);
+    }
+
+    //object attributes Student objesine bağladım
+    let objectData = { adi: " adım55" };
+    //Student.call(objectData);
+    //Student.apply(objectData);
+    let bindData = Student.bind(objectData);
+    bindData();
+}
+//objectData5()
+
+let objectData6 = () => {
+    let Student = function (data1, data2) {
+        console.log("Merhabalar " + data1 + " " + data2 + " " + this.adi);
+    }
+
+    //object attributes Student objesine bağladım
+    let objectData = { adi: " adım55" };
+    //Student.call(objectData, 'hibernate', 'myssql');
+    //Student.apply(objectData,['hibernate', 'myssql'])
+    let bindData = Student.bind(objectData,'hibernate', 'myssql')
+    bindData();
+
+}
+//objectData6() 
+
+
+
+// object
+// npm
+// webpack
+// web-server
+// babel
+// CORS / api-jquery / CORS
+// dockerize
+
+// ES5+ ...
