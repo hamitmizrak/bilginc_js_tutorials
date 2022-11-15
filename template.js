@@ -803,7 +803,7 @@ let objectData6 = () => {
     let objectData = { adi: " adım55" };
     //Student.call(objectData, 'hibernate', 'myssql');
     //Student.apply(objectData,['hibernate', 'myssql'])
-    let bindData = Student.bind(objectData,'hibernate', 'myssql')
+    let bindData = Student.bind(objectData, 'hibernate', 'myssql')
     bindData();
 
 }
@@ -814,48 +814,73 @@ let objectData7 = () => {
     //let objectData={};
     //console.log(objectData);
 
-    let Student=function (adi,soyadi){
-        this.adi=adi;
-        this.soyadi=soyadi;
+    let Student = function (adi, soyadi) {
+        this.adi = adi;
+        this.soyadi = soyadi;
         console.log(this);
     }; //end Student
 
-    let result=new Student("adı741","soyadı741")
-    console.log("hasOwnProperty attributes   => "+result.hasOwnProperty("adi"))
+    let result = new Student("adı741", "soyadı741")
+    console.log("hasOwnProperty attributes   => " + result.hasOwnProperty("adi"))
 }
 //objectData7()
 
 
 let objectData8 = () => {
-    let Student=function (adi,soyadi,yas){
-        this.adi=adi;
-        this.soyadi=soyadi;
-        this.yas=yas;
+    let Student = function (adi, soyadi, yas) {
+        this.adi = adi;
+        this.soyadi = soyadi;
+        this.yas = yas;
         console.log(this);
     }; //end Student
 
     //GETYAS
-    Student.prototype.getYas=function(){
-        return 2022-this.yas;
+    Student.prototype.getYas = function () {
+        return 2022 - this.yas;
     }
 
     //GETADI
-    Student.prototype.getAdi=function(){
+    Student.prototype.getAdi = function () {
         return this.adi;
     }
 
     //GETSOYADI
-    Student.prototype.getSoyadi=function(){
+    Student.prototype.getSoyadi = function () {
         return this.soyadi;
     }
 
-    let result=new Student("adi89","soyadi89",10);
+    let result = new Student("adi89", "soyadi89", 10);
     console.log(result.getAdi())
     console.log(result.getYas())
     console.log(result.getSoyadi())
 }
 
-objectData8();
+//objectData8();
+
+//Built-in constructor
+let objectData9 = () => {
+
+    //kendi karekök 
+    String.prototype.myAttributeSqrt = function (data) {
+        return Math.abs(Math.sqrt(data));
+    }
+    console.log("".myAttributeSqrt(16));
+
+    //kendi karekök 
+    String.prototype.myAttributePow = function (data) {
+        return Math.abs(Math.pow(data, 2));
+    }
+    console.log("".myAttributePow(5));
+
+    // Kullanıcının vereceği sayıya göre kendisini tekrarlasın
+    String.prototype.repeatRecursive=function(data){
+        return new Array(data+1).join(this);
+    }
+    console.log("merhabalar ".repeatRecursive(2));
+
+}
+
+objectData9()
 
 // object
 // npm
