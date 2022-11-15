@@ -809,7 +809,53 @@ let objectData6 = () => {
 }
 //objectData6() 
 
+//ProtoType : hasOwnProperty( object)
+let objectData7 = () => {
+    //let objectData={};
+    //console.log(objectData);
 
+    let Student=function (adi,soyadi){
+        this.adi=adi;
+        this.soyadi=soyadi;
+        console.log(this);
+    }; //end Student
+
+    let result=new Student("adı741","soyadı741")
+    console.log("hasOwnProperty attributes   => "+result.hasOwnProperty("adi"))
+}
+//objectData7()
+
+
+let objectData8 = () => {
+    let Student=function (adi,soyadi,yas){
+        this.adi=adi;
+        this.soyadi=soyadi;
+        this.yas=yas;
+        console.log(this);
+    }; //end Student
+
+    //GETYAS
+    Student.prototype.getYas=function(){
+        return 2022-this.yas;
+    }
+
+    //GETADI
+    Student.prototype.getAdi=function(){
+        return this.adi;
+    }
+
+    //GETSOYADI
+    Student.prototype.getSoyadi=function(){
+        return this.soyadi;
+    }
+
+    let result=new Student("adi89","soyadi89",10);
+    console.log(result.getAdi())
+    console.log(result.getYas())
+    console.log(result.getSoyadi())
+}
+
+objectData8();
 
 // object
 // npm
